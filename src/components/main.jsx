@@ -9,6 +9,7 @@ import Date from './date'
 import 'font-awesome/css/font-awesome.min.css';
 import moment from 'moment'
 
+
 class MainIndex extends Component {
     state = { 
         logo:'favicon.webp',
@@ -18,14 +19,15 @@ class MainIndex extends Component {
         Btn_text:"Report Lockdown",
         web:"corona.gov.bd",
         update:"Last update",
-        date:moment().format('dddd , MMMM DD, YYYY')
+        date:moment().format('dddd , MMMM DD, YYYY'),
+        link_a:"./whereislockdown.html"
      }
     render() {
         return ( 
             <div>
                 <Row>
                    <Col className="map" md={9}>
-                       <iframe className="i_frame"></iframe>
+                       <iframe className="i_frame" src={this.state.link_a} ></iframe>
                    </Col>
                    <Col sm={3}>
                        <Form>
@@ -51,6 +53,7 @@ class MainIndex extends Component {
                            </div>
                            <h5 className="mt-2">{this.state.update}</h5>
                            <Date date={this.state.date} />
+                           <br />
                        </Form>
                    </Col>
                 </Row>
