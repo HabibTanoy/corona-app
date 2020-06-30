@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Row, Col, Form, Image } from 'react-bootstrap';
 import './main.css';
-import CoronaStatus from './c_status'
-import RadioBtn from './radioBtn'
-import Mytable from './table'
-import Report from './reportBtn'
-import Date from './date'
+import CoronaStatus from './c_status';
+import RadioBtn from './radioBtn';
+import Mytable from './table';
+import Report from './reportBtn';
+import Date from './date';
+import Frame from './Iframe';
 import 'font-awesome/css/font-awesome.min.css';
 import moment from 'moment'
+import AnotherMap from './AnotherMap';
 
 
 class MainIndex extends Component {
@@ -20,14 +22,15 @@ class MainIndex extends Component {
         web:"corona.gov.bd",
         update:"Last update",
         date:moment().format('dddd , MMMM DD, YYYY'),
-        link_a:"./whereislockdown.html"
+        corona_map:"./who_corona.html",
+        Lockdown_map:"./whereislockdown.html"
      }
     render() {
         return ( 
             <div>
                 <Row>
                    <Col className="map" md={9}>
-                       <iframe className="i_frame" src={this.state.link_a} ></iframe>
+                       <Frame c_map={this.state.corona_map} Lockdown_map={this.state.Lockdown_map} />
                    </Col>
                    <Col sm={3}>
                        <Form>
